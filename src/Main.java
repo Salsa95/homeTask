@@ -11,5 +11,10 @@ public class Main {
         calc.println.accept(isError);
         calc.println.accept(prime);
 
+        Worker.OnTaskDoneListener listener = System.out::println;
+        Worker.OnTaskErrorListener errorListener = System.out::println;
+
+        Worker worker = new Worker(listener, errorListener);
+        worker.start();
     }
 }
